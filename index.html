@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="style.css">
-  <script src="java.js" defer></script>
+  <script src="script.js" defer></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +13,9 @@
   <div class="container-one">
     <div class="card-one">
       <div class="divider">
-        <div class="wand"><u>Wand</u></div>
-        <div class="bow"><u>Bow</u></div>
-        <div class="mace"><u>Mace</u></div>
+        <div class="title"><u>Wand</u></div>
+        <div class="title"><u>Bow</u></div>
+        <div class="title"><u>Mace</u></div>
       </div>
       <div class="divider">
         <div class="about">
@@ -31,20 +31,20 @@
       <div class="intro">Can you defeat the beast?</div>
     </div>
     <div class="player-score">
-      <div class="player">Player lives: <span> </span></div>
-      <div class="p-count">5</div>
+      <div class="player">Player lives:</div>
+      <span id="player-lives"></span>
     </div>
     <div class="computer-score">
       <div class="computer">Computer lives:</div>
-      <div class="c-count">5</div>
+      <span id="computer-lives"></span>
     </div>
   </div>
 
   <div class="container-two">
     <div class="card-two">
-      <button class="option"><img src="images/wand.png" height="80%" width="80%"></button>
-      <button class="option"><img src="images/bow.png" height="80%" width="80%"></button>
-      <button class="option"><img src="images/mace.png" height="80%" width="80%"></button>
+      <button class="option" data-key="wand"><img src="images/wand.png" height="80%" width="80%"></button>
+      <button class="option" data-key="bow"><img src="images/bow.png" height="80%" width="80%"></button>
+      <button class="option" data-key="mace"><img src="images/mace.png" height="80%" width="80%"></button>
     </div>
   </div>
 

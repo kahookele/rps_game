@@ -1,37 +1,17 @@
-// Options for Rock, Paper, or Scissors
-const options = ['wand', 'bow', 'mace'];
+const btns = document.querySelectorAll("[data-key]");
+const playerLives = document.querySelector("#player-lives");
+const computerLives = document.querySelector("#computer-lives");
+let playerCount = 5;
+let computerCount = 5;
+playerLives.innerText = playerCount;
+computerLives.innerText = computerCount;
 
-// Computer makes a random choice from options.
-function cpuChoice() {
-  let choice = Math.floor(Math.random() * options.length);
-  return options[choice];
+function rounds() {
+
 }
 
-// Capitalize a string function
-function capitalizer(string) {
-  let letter = string.charAt(0).toUpperCase();
-  return letter + string.slice(1);
-}
-
-// Decides on who is the winner of the round.
-function round(player, computer) {
-  if (player === computer) {
-    return "It's a tie!";
-  }
-  else if (player === 'wand' && computer === 'bow' ||
-           player === 'bow' && computer === 'mace' ||
-           player === 'mace' && computer === 'wand') {
-        return `You win! ${capitalizer(player)} beats ${capitalizer(computer)}.`;
-      }
-  else {
-    return `You lose! ${capitalizer(computer)} beats ${capitalizer(player)}`;
-  }
-}
-
-function game() {
-  for (let i = 5; i > 0; i--) {
-    console.log(round('wand', cpuChoice()));
-  }
-}
-
-console.log(game());
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    playerLives.innerText = playerCount--;
+  })
+})
