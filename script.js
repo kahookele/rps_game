@@ -9,23 +9,29 @@ function cpuChoice() {
 
 // Capitalize a string function
 function capitalizer(string) {
-  let letter = string.charAt(0).toUpperCase()
+  let letter = string.charAt(0).toUpperCase();
   return letter + string.slice(1);
 }
 
 // Decides on who is the winner of the round.
 function round(player, computer) {
   if (player === computer) {
-    return "It's a tie!"
+    return "It's a tie!";
   }
   else if (player === 'wand' && computer === 'bow' ||
            player === 'bow' && computer === 'mace' ||
            player === 'mace' && computer === 'wand') {
-        return `You win! ${capitalizer(player)} beats ${capitalizer(computer)}.`
+        return `You win! ${capitalizer(player)} beats ${capitalizer(computer)}.`;
       }
   else {
-    return `You lose! ${capitalizer(computer)} beats ${capitalizer(player)}`
+    return `You lose! ${capitalizer(computer)} beats ${capitalizer(player)}`;
   }
 }
 
-console.log(round('mace', cpuChoice()));
+function game() {
+  for (let i = 5; i > 0; i--) {
+    console.log(round('wand', cpuChoice()));
+  }
+}
+
+console.log(game());
