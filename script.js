@@ -1,17 +1,46 @@
-const btns = document.querySelectorAll("[data-key]");
-const playerLives = document.querySelector("#player-lives");
-const computerLives = document.querySelector("#computer-lives");
-let playerCount = 5;
-let computerCount = 5;
-playerLives.innerText = playerCount;
-computerLives.innerText = computerCount;
+const playerLives = document.querySelector('#player-lives');
+const computerLives = document.querySelector('#computer-lives');
+const resultDisplay = document.querySelector('.result');
+const buttons = document.querySelectorAll('button');
+let playerChoice;
+let result;
+let pLives = 5;
+let cLives = 5;
+playerLives.innerText = pLives;
+computerLives.innerText = cLives;
 
-function rounds() {
+buttons.forEach(btn => btn.addEventListener('click', (e) => {
+  playerChoice = e.target.id;
+  cpuChoice();
+  isWinner();
+}))
 
+const choices = ['wand', 'bow', 'mace'];
+
+function cpuChoice() {
+  let choice = Math.floor(Math.random() * choices.length);
+  return choices[choice];
 }
 
-btns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    playerLives.innerText = playerCount--;
-  })
-})
+function capitalizer(string) {
+  let letter = string.charAt(0).toUpperCase();
+  return letter + string.slice(1);
+}
+
+function isWinner() {
+  if (playerChoice == cpuChoice()) {
+      result = `It's a draw! You both chose ${capitalizer(playerChoice)}.`
+  }
+  else if (playerChoice === 'wand' && cpuChoice() === 'bow' ||
+           playerChoice === 'bow' && cpuChoice() === 'mace' ||
+           playerChoice === 'mace' && cpuChoice() === 'wand') {
+           computerLives.innerText = cLives--;
+           result = `You win! ${capitalizer(playerChoice)} beats ${capitalizer(cpuChoice())}! Your opponent takes damage!`
+  }
+  else {
+    playerLives.innerText = pLives--;
+    result = `The opponents ${capitalizer(cpuChoice())} beats your ${capitalizer(playerChoice)}! You take damage!`
+  }
+
+  return resultDisplay.innerText = result;
+}

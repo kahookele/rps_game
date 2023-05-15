@@ -19,8 +19,6 @@ body {
   margin-top: 2rem;
 }
 
-
-
 .card-one {
   border: 2px solid;
   height: 20rem;
@@ -86,7 +84,11 @@ body {
   align-items: center;
 }
 
-.option {
+.result {
+  font-size: 1.5rem;
+}
+
+button {
   border-radius: 10%;
   background-color: rgba(229, 232, 235, 0.687);
   font-family: 'Inknut Antiqua', serif;
@@ -96,7 +98,7 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.option:hover {
+button:hover {
   transform: scale(1.1);
 }
 
