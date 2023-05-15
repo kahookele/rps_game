@@ -9,12 +9,6 @@ let cLives = 5;
 playerLives.innerText = pLives;
 computerLives.innerText = cLives;
 
-buttons.forEach(btn => btn.addEventListener('click', (e) => {
-  playerChoice = e.target.id;
-  cpuChoice();
-  isWinner();
-}))
-
 const choices = ['wand', 'bow', 'mace'];
 
 function cpuChoice() {
@@ -34,13 +28,34 @@ function isWinner() {
   else if (playerChoice === 'wand' && cpuChoice() === 'bow' ||
            playerChoice === 'bow' && cpuChoice() === 'mace' ||
            playerChoice === 'mace' && cpuChoice() === 'wand') {
-           computerLives.innerText = cLives--;
            result = `You win! ${capitalizer(playerChoice)} beats ${capitalizer(cpuChoice())}! Your opponent takes damage!`
+           computerLives.innerText = cLives--;
+
   }
   else {
-    playerLives.innerText = pLives--;
     result = `The opponents ${capitalizer(cpuChoice())} beats your ${capitalizer(playerChoice)}! You take damage!`
+    playerLives.innerText = pLives--;
   }
 
   return resultDisplay.innerText = result;
 }
+
+function endOfGame(player, computer) {
+  if (player.innerText === '0') {
+    pLives.innerText = '';
+    cLives.innerText = '';
+    return resultDisplay.innerText = "You LOSE! Game over.  Reload page to play agian.";
+  }
+  else if (computer.innerText === '0') {
+    pLives.innerText = '';
+    cLives.innerText = '';
+    return resultDisplay.innerText = "You WON! Game over. Reload page to play agian.";
+  }
+}
+
+buttons.forEach(btn => btn.addEventListener('click', (e) => {
+  playerChoice = e.target.id;
+  cpuChoice();
+  isWinner();
+  endOfGame(playerLives, computerLives);
+}))
