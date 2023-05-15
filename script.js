@@ -22,19 +22,20 @@ function capitalizer(string) {
 }
 
 function isWinner() {
-  if (playerChoice == cpuChoice()) {
-      result = `It's a draw! You both chose ${capitalizer(playerChoice)}.`
-  }
+  if (playerChoice === 'wand' && cpuChoice() === 'mace' ||
+      playerChoice === 'bow' && cpuChoice() === 'wand' ||
+      playerChoice === 'mace' && cpuChoice() === 'bow') {
+      playerLives.innerText = pLives--;
+      result = `You LOSE! ${capitalizer(cpuChoice())} beats ${capitalizer(playerChoice)}! You takes damage!`
+}
   else if (playerChoice === 'wand' && cpuChoice() === 'bow' ||
            playerChoice === 'bow' && cpuChoice() === 'mace' ||
            playerChoice === 'mace' && cpuChoice() === 'wand') {
-           result = `You win! ${capitalizer(playerChoice)} beats ${capitalizer(cpuChoice())}! Your opponent takes damage!`
            computerLives.innerText = cLives--;
-
+           result = `You WIN! ${capitalizer(playerChoice)} beats ${capitalizer(cpuChoice())}! Your opponent takes damage!`
   }
   else {
-    result = `The opponents ${capitalizer(cpuChoice())} beats your ${capitalizer(playerChoice)}! You take damage!`
-    playerLives.innerText = pLives--;
+    result = `Draw! You both chose ${capitalizer(cpuChoice())}`;
   }
 
   return resultDisplay.innerText = result;
@@ -42,13 +43,9 @@ function isWinner() {
 
 function endOfGame(player, computer) {
   if (player.innerText === '0') {
-    pLives.innerText = '';
-    cLives.innerText = '';
     return resultDisplay.innerText = "You LOSE! Game over.  Reload page to play agian.";
   }
   else if (computer.innerText === '0') {
-    pLives.innerText = '';
-    cLives.innerText = '';
     return resultDisplay.innerText = "You WON! Game over. Reload page to play agian.";
   }
 }
@@ -58,4 +55,4 @@ buttons.forEach(btn => btn.addEventListener('click', (e) => {
   cpuChoice();
   isWinner();
   endOfGame(playerLives, computerLives);
-}))
+}));
