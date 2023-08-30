@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Document</title>
 </head>
 <body>
 
-  <div class="container-one">
-    <div class="card-one">
-      <div class="divider">
-        <div class="title"><u>Wand</u></div>
-        <div class="title"><u>Bow</u></div>
-        <div class="title"><u>Mace</u></div>
-      </div>
-      <div class="divider">
-        <div class="about">
-          Wand beats Bow, Bow beats Mace, and Mace beats Wand.
-          Who will be the last victor standing?
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Header section starts -->
+  <section class="header" id="header">
 
-  <div class="score-container">
-    <div class="about-score">
-      <div class="intro">Can you defeat the beast?</div>
+    <div class="title">
+      <h1 class="wand">Wand</h1>
+      <h1 class="bow">Bow</h1>
+      <h1 class="mace">Mace</h1>
     </div>
-    <div class="player-score">
-      <div class="player">Player lives:</div>
-      <span id="player-lives"></span>
-    </div>
-    <div class="computer-score">
-      <div class="computer">Computer lives:</div>
-      <span id="computer-lives"></span>
-    </div>
-    <div class="result"></div>
-  </div>
 
-  <div class="container-two">
-    <div class="card-two">
-      <button><img id="wand" src="images/wand.png" height="80%" width="80%"></button>
-      <button><img id="bow" src="images/bow.png" height="80%" width="80%"></button>
-      <button><img id="mace" src="images/mace.png" height="80%" width="80%"></button>
+  </section>
+  <!-- Header section ends -->
+
+  <!-- Sub-title section starts -->
+  <section class="sub-title">
+
+    <p class="title-info">3 weapons | 5 Lives | 2 destinies</p>
+
+    <p class="title-info"><span class="wand">wand</span> beats <span class="mace">mace</span> | <span class="mace">mace</span> beats <span class="bow">bow</span> | <span class="bow">bow</span> beats <span class="wand">wand</span></p>
+
+  </section>
+  <!-- Sub-title section ends -->
+
+  <!-- images and function starts -->
+  <section class="function-container">
+
+    <div class="img-container">
+
+      <div class="img">
+        <img src="images/wand.png" alt="">
+      </div>
+
+      <div class="img">
+        <img src="images/bow.png" alt="">
+      </div>
+
+      <div class="img">
+        <img src="images/mace.png" alt="">
+      </div>
+
     </div>
-  </div>
+
+  </section>
+  <!-- images and function ends -->
+
+  <!-- Add in seperator start -->
+  <section class="seperator">
+    <img src="images/separator.jpg" alt="">
+  </section>
+  <!-- Add in seperator end -->
+
+  <!-- score section starts -->
+  <section class="score-container">
+
+    <div class="score-board">
+      
+    </div>
+
+  </section>
+  <!-- score section starts -->
 
 </body>
 </html>

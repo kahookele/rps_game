@@ -1,104 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inknut+Antiqua:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital@0;1&display=swap');
 
-body {
-  border: 0;
-  margin: 0;
-  padding: 0;
+:root {
+  --green: #22a262b2;
+  --purple: #9932cc95;
+  --maroon: #cd5c5cae;
 }
 
 body {
-  background-color: #c0c0c0b2;
+  font-family: 'Almendra', serif;
+  text-transform: uppercase;
+  padding: none;
+  border: none;
 }
 
-.container-two,
-.container-one {
-  height: 20rem;
+#header {
+  width: 100%;
+}
+
+.title {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
+  font-size: 2.8rem;
+  gap: 4rem;
 }
 
-.card-one {
-  border: 2px solid;
-  height: 20rem;
-  width: 40rem;
+.wand {
+  color: var(--purple);
+}
+
+.bow {
+  color: var(--green);
+}
+
+.mace {
+  color: var(--maroon);
+}
+
+.sub-title {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  text-align: center;
-  box-shadow: 5px 10px;
+  font-size: 1.3rem;
 }
 
-.divider {
-  font-family: 'Inknut Antiqua', serif;
-  align-items: center;
-  font-size: 33px;
+.function-container {
+  display: flex;
   width: 100%;
-  height: 30%;
+  justify-content: center;
+  padding: .5rem;
+  margin-top: 5rem;
+}
+
+.img-container {
+  border: rgba(0, 0, 0, 0.636) solid;
+  border-radius: 2%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  height: 10rem;
+  width: 70%;
+  padding: .7rem;
 }
 
-.about {
-  font-size: 15px;
-  width: 80%;
+.function-container .img-container .img img {
+  height: 5rem;
+  width: auto;
+  transition: .2s ease-in-out;
 }
 
-.about-score {
-  height: 30%;
-  width: 40%;
+.function-container .img-container .img img:hover {
+  transform: scale(1.3);
+}
+
+.seperator {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
-
-.score-container {
-  font-family: 'Inknut Antiqua', serif;
-  height: 8rem;
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.player-score,
-.computer-score {
-  width: 18%;
-  height: 30%;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 2px;
-  padding-right: 2px;
-  align-items: center;
-}
-
-.card-two {
-  height: 17rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.result {
-  font-size: 1.5rem;
-}
-
-button {
-  border-radius: 10%;
-  background-color: rgba(229, 232, 235, 0.687);
-  font-family: 'Inknut Antiqua', serif;
-  height: 15rem;
-  width: 15rem;
-  box-shadow: 5px 10px;
-  transition: 0.2s ease-in-out;
-}
-
-button:hover {
-  transform: scale(1.1);
-}
-
