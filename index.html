@@ -36,16 +36,16 @@
 
     <div class="img-container">
 
-      <div class="img">
-        <img src="images/wand.png" alt="">
+      <div class="img" id="choice">
+        <img id="wand" src="images/wand.png" alt="">
       </div>
 
-      <div class="img">
-        <img src="images/bow.png" alt="">
+      <div class="img" id="choice">
+        <img id="bow" src="images/bow.png" alt="">
       </div>
 
-      <div class="img">
-        <img src="images/mace.png" alt="">
+      <div class="img" id="choice">
+        <img id="mace" src="images/mace.png" alt="">
       </div>
 
     </div>
@@ -63,11 +63,33 @@
   <section class="score-container">
 
     <div class="score-board">
-      
+
+        <div class="item-board">
+          <p>enemy's weapon</p>
+          <img src="images/skull.png" alt="">
+        </div>
+
+        <div class="info-board">
+
+          <div class="rounds">
+            <div class="round">Round: <span class="round-count">0</span></div>
+          </div>
+
+          <div class="lives">
+            <p>Your lives: <span class="p-lives">5</span> | computer lives: <span class="c-lives">5</span></p>
+          </div>
+
+          <div class="combat-area">
+            <p class="combat-info">combat area: empty</p>
+          </div>
+
+        </div>
+
     </div>
 
   </section>
   <!-- score section starts -->
 
+  <script src="java.js"></script>
 </body>
 </html>
