@@ -1,6 +1,8 @@
 let plives = 5;
 let clives = 5;
 let rounds = 0;
+let modalContainerOne = document.querySelector('.modal-container-one');
+let modalContainerTwo = document.querySelector('.modal-container-two');
 let pLivesText = document.querySelector('.p-lives');
 let cLivesText = document.querySelector('.c-lives');
 let info = document.querySelector('.combat-info')
@@ -16,7 +18,15 @@ weapons.forEach(c => c.addEventListener('click', () => {
   const user = userChoice(c)
   roundWinner(user, cpu)
   health(user, cpu)
+  roundsPlayed()
+  announceWinner()
 }))
+
+// Rounds played
+function roundsPlayed() {
+  rounds++
+  round.innerText = rounds;
+};
 
 // computer choice
 function cpuChoice() {
@@ -78,3 +88,13 @@ function health(p, c) {
     return pLivesText.innerHTML = userHealth()
   };
 };
+
+// Modal to announce the winner
+function announceWinner() {
+  if (clives === 0) {
+    modalContainerOne.style.display = 'block'
+  }
+  else if (plives === 0) {
+    modalContainerTwo.style.display = 'block'
+  }
+}
