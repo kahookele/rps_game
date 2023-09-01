@@ -3,9 +3,10 @@ let clives = 5;
 let rounds = 0;
 let modalContainerOne = document.querySelector('.modal-container-one');
 let modalContainerTwo = document.querySelector('.modal-container-two');
+let enemyImg = document.getElementById('enemy-img');
 let pLivesText = document.querySelector('.p-lives');
 let cLivesText = document.querySelector('.c-lives');
-let info = document.querySelector('.combat-info')
+let info = document.querySelector('.combat-info');
 
 let round = document.querySelector('.round-count');
 const wand = document.querySelector('#wand');
@@ -15,6 +16,7 @@ const weapons = [wand, mace, bow];
 
 weapons.forEach(c => c.addEventListener('click', () => {
   const cpu = cpuChoice()
+  changeImg(cpu)
   const user = userChoice(c)
   roundWinner(user, cpu)
   health(user, cpu)
@@ -98,3 +100,16 @@ function announceWinner() {
     modalContainerTwo.style.display = 'block'
   }
 }
+
+// (enemyImg.src = "../images/bow.png")
+function changeImg(cpu) {
+  if (cpu === 'wand') {
+    enemyImg.src = "../images/wand.png"
+  }
+  else if (cpu === 'mace') {
+    enemyImg.src = "../images/mace.png"
+  }
+  else if (cpu === 'bow') {
+    enemyImg.src = "../images/bow.png"
+  };
+};
