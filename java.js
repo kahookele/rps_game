@@ -1,80 +1,80 @@
+let plives = 5;
+let clives = 5;
+let rounds = 0;
+let pLivesText = document.querySelector('.p-lives');
+let cLivesText = document.querySelector('.c-lives');
+let info = document.querySelector('.combat-info')
 
-//  set the count for the lives
-let pLives = 5;
-let cLives = 5;
-let rounds = 0
-
-// Query selectors to manipulate
-let round = document.querySelector(".round-count");
-let playerLives = document.querySelector(".p-lives");
-let computerLives = document.querySelector(".c-lives");
-let info = document.querySelector(".combat-info");
-
-// Query selectors to use
+let round = document.querySelector('.round-count');
 const wand = document.querySelector('#wand');
-const bow = document.querySelector('#bow');
 const mace = document.querySelector('#mace');
-const weapons = [wand, bow, mace];
+const bow = document.querySelector('#bow');
+const weapons = [wand, mace, bow];
 
-// Game logic
 weapons.forEach(c => c.addEventListener('click', () => {
-  rounds += 1;
-  round.innerText = rounds;
-  roundWinner(c);
-  combatArea(c);
-  health(c);
-}));
+  const cpu = cpuChoice()
+  const user = userChoice(c)
+  roundWinner(user, cpu)
+  health(user, cpu)
+}))
 
-// Player choice
-function pChoice(e) {
-  return e;
-};
-
-// Computer choice
+// computer choice
 function cpuChoice() {
-  let n = Math.floor(Math.random() * weapons.length);
-  return weapons[n];
+  const n = Math.floor(Math.random() * weapons.length)
+  return weapons[n].id
 };
 
-// Winner of round
-function roundWinner(e) {
-  if (e === cpuChoice()) {
-    return "draw"
-  }
-  else if (e === wand && cpuChoice() === mace ||
-           e === mace && cpuChoice() === bow ||
-           e === bow && cpuChoice() === wand) {
-    return "player";
-  }
-  else {
-    return "computer";
-  }
-};
-
-// Combat information
-function combatArea(e) {
-  if (roundWinner(e) === "draw") {
-    info.innerText = "COMBAt: It is a draw.";
-  }
-  else if (roundWinner(e) === "player") {
-    info.innerText = "COMBAt: You Win!.";
-  }
-  else {
-    info.innerText = "COMBAt: You Suck.";
-  }
+//  player choice
+function userChoice(e) {
+  return e.id
 }
 
-// Health Check
-function health(e) {
-  if (roundWinner(e) === "player") {
-    cLives -= 1;
-    return computerLives.innerText = cLives;
+// winner
+function roundWinner(p, c) {
+  if (p === c) {
+    info.innerText = `Draw! you chose ${p} and enemy chose ${c}`
   }
-  else if (roundWinner(e) === "computer") {
-    pLives -= 1;
-    return playerLives.innerText = pLives;
+  else if (p === 'wand' && c === 'mace') {
+    info.innerText = `Win! you chose ${p} and enemy chose ${c}`
+  }
+  else if (p === 'mace' && c === 'bow') {
+    info.innerText = `Win! you chose ${p} and enemy chose ${c}`
+  }
+  else if (p === 'bow' && c === 'wand') {
+    info.innerText = `Win! you chose ${p} and enemy chose ${c}`
+  }
+  else if (c === 'wand' && p === 'mace') {
+    info.innerText = `Lose! you chose ${p} and enemy chose ${c}`
+  }
+  else if (c === 'mace' && p === 'bow') {
+    info.innerText = `Lose! you chose ${p} and enemy chose ${c}`
+  }
+  else if (c === 'bow' && p === 'wand') {
+    info.innerText = `Lose! you chose ${p} and enemy chose ${c}`
+  }
+};
+
+// lives
+function cpuHealth() {
+  clives -= 1
+  return clives
+}
+
+function userHealth() {
+  plives -= 1
+  return plives
+};
+
+function health(p, c) {
+  if (p === c) {
+    false
+  }
+  else if (p === 'wand' && c === 'mace' ||
+      p === 'mace' && c === 'bow' ||
+      p === 'bow' && c === 'wand') {
+    return cLivesText.innerHTML = cpuHealth()
   }
   else {
-    nil;
-  }
+    return pLivesText.innerHTML = userHealth()
+  };
 };
